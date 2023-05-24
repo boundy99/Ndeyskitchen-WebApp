@@ -16,8 +16,6 @@ app.get("/", (req, res) => {
 
 //routes
 app.use("/api/users", userRoutes);
-
-//app.get("/api/users", userRoutes);
 app.post("/api/users", userRoutes);
 
 if (DBConnection) {
