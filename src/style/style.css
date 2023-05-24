@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: rgba(207, 105, 50, 0.414);
+    background-image: url('https://img.freepik.com/free-photo/delicious-cupcakes-with-copy-space_23-2148815876.jpg?w=1380&t=st=1684912379~exp=1684912979~hmac=73e61a5b11ca60bf1590df3834d1d094ebb792c0439187d7d25ee4a84cb5f941');
+}
+
+
+/* Login */
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    font-size: 16px;
+    color: #371821;
+    border: 1px solid #0000;
+    background-color: #DC952F;
+    border-radius: 5px;
+    width: 387px;
+    height: 463px;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 387px;
+}
+
+.input-box {
+    width: 70%;
+    height: 40px;
+    border: 1px solid;
+    padding: 2px;
+    margin: 17px auto;
+    border: none
+}
+
+.input-box:focus {
+    outline: 2px solid;
+}
+
+.form-btn {
+    font-size: 16px;
+    padding: 0.825rem;
+    width: 11.25rem;
+    border-style: none;
+    margin-top: 1.80rem;
+    margin-bottom: 1.5px;
+    border-radius: 10px;
+    color: rgb(236, 236, 236);
+    background-color: #371821;
+}
+
+.form-btn:hover {
+    background-color: black;
+}
+
+.form-header {
+    font-family: 'Satisfy', cursive;
+    font-size: 50px;
+    margin-bottom: 1.875rem;
+}
+
+.form-link {
+    font-size: 13px;
+    color: black
+}
+
+.form-link a {
+    color: black;
+}
+
+@media (max-width: 660px) {
+    form {
+        width: 280px;
+        height: 400px;
+    }
+    .input-box {
+        margin: 9px auto;
+        height: 22px;
+    }
+}
