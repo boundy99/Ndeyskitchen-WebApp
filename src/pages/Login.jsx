@@ -18,7 +18,9 @@ export default function Login() {
 
           <input className="input-box" type="password" id="password" />
 
-          <button className="form-btn">Login</button>
+          <button type="submit" className="form-btn">
+            Login
+          </button>
           <p className="form-link">
             Don't have an account? <a href="/Signup">Signup here</a>
           </p>

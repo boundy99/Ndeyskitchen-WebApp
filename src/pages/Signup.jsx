@@ -38,11 +38,18 @@ export default function Signup() {
           id="password-confirmation"
         />
 
-        <button className="form-btn">Login</button>
+        <button type="submit" className="form-btn">
+          Signup
+        </button>
         <p className="form-link">
           Already have an account? <a href="/Login">Login here</a>
         </p>
       </form>
+
+      <button type="submit" className="signup-with-btn">
+        Signup with
+        <img className="logos" src={require('../images/google.png')} />
+      </button>
     </div>
   );
 }
