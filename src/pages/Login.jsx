@@ -1,10 +1,9 @@
-import Link from 'react-router-dom';
 export default function Login() {
   return (
-    <div className="login">
+    <div className="login-container">
       <img className="logo-img" src={require('../images/logo.png')} />
-      <div className="login-form">
-        <form>
+      <div className="login-form-container">
+        <form className="login-form">
           <h1 className="form-header">Login</h1>
 
           <label className="form-label" htmlFor="email">
@@ -21,7 +20,7 @@ export default function Login() {
 
           <button className="form-btn">Login</button>
           <p className="form-link">
-            Don't have an account? <a href="/">Signup here</a>
+            Don't have an account? <a href="/Signup">Signup here</a>
           </p>
         </form>
       </div>
