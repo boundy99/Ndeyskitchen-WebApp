@@ -18,7 +18,9 @@ body {
 
 .hide-unhide {
     height: 1.8rem;
-    transform: translate(-30px, 19px);
+    position: absolute;
+    right: 10px;
+    /* transform: translate(-30px, 19px); */
 }
 
 
@@ -213,8 +215,7 @@ body {
         width: 7.25rem;
     }
     .hide-unhide {
-        height: 1.5rem;
-        transform: translate(-10px, 15px);
+        height: 1.2rem;
     }
 }
 
@@ -227,8 +228,7 @@ body {
         margin-bottom: 15px;
     }
     .hide-unhide {
-        height: 1.5rem;
-        transform: translate(-10px, 15px);
+        height: 1.27rem;
     }
 }
 
@@ -263,6 +263,5 @@ body {
     }
     .hide-unhide {
         height: 1.5rem;
-        transform: translate(-10px, 15px);
     }
 }

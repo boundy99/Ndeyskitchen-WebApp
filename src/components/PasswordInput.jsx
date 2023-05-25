@@ -21,9 +21,10 @@ export default function PasswordInput(props) {
       style={{
         width: '100%',
         display: 'flex',
-        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
-        transform: 'translate(12px, 0)',
+        position: 'relative',
+        // transform: 'translate(12px, 0)',
       }}
     >
       <input
