@@ -1,3 +1,5 @@
+import PasswordInput from '../components/PasswordInput';
+import Image from '../components/Image';
 export default function Signup() {
   return (
     <div className="singup-container">
@@ -26,18 +28,13 @@ export default function Signup() {
           Password
         </label>
 
-        <input className="input-box" type="password" id="password" />
+        <PasswordInput id="password" />
 
         <label className="form-label" htmlFor="password-confirmation">
           Confirm Password
         </label>
 
-        <input
-          className="input-box"
-          type="password"
-          id="password-confirmation"
-        />
-
+        <PasswordInput id="password-confirmation" />
         <button type="submit" className="form-btn">
           Signup
         </button>
@@ -48,7 +45,7 @@ export default function Signup() {
 
       <button type="submit" className="signup-with-btn">
         Signup with
-        <img className="logos" src={require('../images/google.png')} />
+        <Image className="logos" src={'google.png'} alt="google" />
       </button>
     </div>
   );

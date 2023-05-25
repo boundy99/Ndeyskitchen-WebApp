@@ -16,11 +16,15 @@ body {
     transform: translate(0, 2px);
 }
 
+.hide-unhide {
+    height: 1.8rem;
+    transform: translate(-30px, 23px);
+}
+
 
 /* Login */
 
 .login-container {
-    background-image: url('');
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,7 +131,7 @@ body {
 }
 
 .signup-form-header {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .signup-form .form-btn {
