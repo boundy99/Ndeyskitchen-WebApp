@@ -7,7 +7,7 @@ body {
 /* image */
 
 .logo-img {
-    width: 5%
+    width: 115.44px
 }
 
 
@@ -20,6 +20,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-width: 280px;
+    min-height: 400px;
 }
 
 .login-form-container {
@@ -74,7 +76,7 @@ body {
     background-color: black;
 }
 
-.form-header {
+.login-form-header {
     font-family: 'Satisfy', cursive;
     font-size: 50px;
     margin-bottom: 1.25rem;
@@ -98,6 +100,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-width: 270px;
+    min-height: 490px;
 }
 
 .signup-form {
@@ -115,6 +119,10 @@ body {
     overflow: auto;
 }
 
+.signup-form-header {
+    font-size: 50px;
+}
+
 
 /* Media queries */
 
@@ -123,8 +131,46 @@ body {
         width: 280px;
         height: 400px;
     }
+    .signup-form {
+        width: 280px;
+        height: 600px;
+    }
     .input-box {
         margin: 9px auto;
-        height: 22px;
+        height: 30px;
+    }
+    .logo-img {
+        width: 90px;
+    }
+    .login-form-header {
+        font-size: 37px;
+    }
+    .signup-form-header {
+        font-size: 37px;
+    }
+    .form-btn {
+        font-size: 14px;
+        width: 7.25rem;
+    }
+}
+
+@media (max-height: 775px) {
+    .signup-form {
+        width: 270px;
+        height: 490px;
+    }
+    .input-box {
+        margin: 9px auto;
+        height: 30px;
+    }
+    .logo-img {
+        width: 90px;
+    }
+    .signup-form-header {
+        font-size: 24px;
+    }
+    .form-btn {
+        font-size: 14px;
+        width: 7.25rem;
     }
 }

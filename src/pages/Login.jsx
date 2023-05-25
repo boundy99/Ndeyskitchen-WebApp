@@ -4,7 +4,7 @@ export default function Login() {
       <img className="logo-img" src={require('../images/logo.png')} />
       <div className="login-form-container">
         <form className="login-form">
-          <h1 className="form-header">Login</h1>
+          <h1 className="login-form-header">Login</h1>
 
           <label className="form-label" htmlFor="email">
             Email
