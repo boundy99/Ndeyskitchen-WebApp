@@ -1,4 +1,5 @@
 {
+    "proxy": "http://localhost:8080",
     "name": "ndeyskitchen",
     "version": "0.1.0",
     "main": "server/server.js",
