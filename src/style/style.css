@@ -18,7 +18,7 @@ body {
 
 .hide-unhide {
     height: 1.8rem;
-    transform: translate(-30px, 23px);
+    transform: translate(-30px, 19px);
 }
 
 
@@ -54,7 +54,6 @@ body {
     flex-direction: column;
     align-items: center;
     max-width: 387px;
-    overflow: auto;
 }
 
 .input-box {
@@ -63,7 +62,7 @@ body {
     border: 1px solid rgb(178, 177, 177);
     border-radius: 5px;
     padding: 2px;
-    margin: 17px auto;
+    margin: 10px auto;
 }
 
 .input-box:focus {
@@ -116,22 +115,23 @@ body {
 }
 
 .signup-form {
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
     border: 1px solid #000000;
     border-radius: 5px;
     width: 387px;
-    height: 700px;
+    height: 550px;
     padding: 0 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 387px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .signup-form-header {
     font-size: 35px;
+    margin-bottom: 10px;
 }
 
 .signup-form .form-btn {
@@ -185,7 +185,7 @@ body {
         font-size: 37px;
     }
     .signup-form-header {
-        font-size: 37px;
+        font-size: 40px;
     }
     .form-btn {
         font-size: 14px;
@@ -199,7 +199,7 @@ body {
         height: 490px;
     }
     .input-box {
-        margin: 9px auto;
+        margin: 7px auto;
         height: 30px;
     }
     .logo-img {
@@ -211,5 +211,58 @@ body {
     .form-btn {
         font-size: 14px;
         width: 7.25rem;
+    }
+    .hide-unhide {
+        height: 1.5rem;
+        transform: translate(-10px, 15px);
+    }
+}
+
+@media (max-width: 520px) {
+    .signup-form {
+        height: 450px;
+    }
+    .signup-form-header {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+    .hide-unhide {
+        height: 1.5rem;
+        transform: translate(-10px, 15px);
+    }
+}
+
+@media (max-width: 300px) {
+    .login-form {
+        width: 200px;
+        height: 360px;
+        font-size: 13px;
+    }
+    .signup-form {
+        width: 200px;
+        height: 400px;
+    }
+    .input-box {
+        font-size: 9px;
+        margin: 5px auto;
+        height: 30px;
+    }
+    .logo-img {
+        width: 80px;
+    }
+    .login-form-header {
+        font-size: 30px;
+    }
+    .signup-form-header {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .form-btn {
+        font-size: 13px;
+        width: 5.5rem;
+    }
+    .hide-unhide {
+        height: 1.5rem;
+        transform: translate(-10px, 15px);
     }
 }

@@ -4,37 +4,16 @@ export default function Signup() {
   return (
     <div className="singup-container">
       <form className="signup-form">
-        <h1 className="signup-form-header">Signup</h1>
+        <p className="signup-form-header">
+          <strong>Signup</strong>
+        </p>
 
-        <label className="form-label" htmlFor="first-name">
-          First Name
-        </label>
+        <input className="input-box" id="first-name" placeholder="First Name" />
+        <input className="input-box" type="email" placeholder="Last Name" />
+        <input className="input-box" type="email" placeholder="Email" />
+        <PasswordInput placeholder="Password" />
+        <PasswordInput placeholder="Confirm Password" />
 
-        <input className="input-box" type="email" id="first-name" />
-
-        <label className="form-label" htmlFor="last-name">
-          Last Name
-        </label>
-
-        <input className="input-box" type="email" id="last-name" />
-
-        <label className="form-label" htmlFor="email">
-          Email
-        </label>
-
-        <input className="input-box" type="email" id="email" />
-
-        <label className="form-label" htmlFor="password">
-          Password
-        </label>
-
-        <PasswordInput id="password" />
-
-        <label className="form-label" htmlFor="password-confirmation">
-          Confirm Password
-        </label>
-
-        <PasswordInput id="password-confirmation" />
         <button type="submit" className="form-btn">
           Signup
         </button>
@@ -45,7 +24,7 @@ export default function Signup() {
 
       <button type="submit" className="signup-with-btn">
         Signup with
-        <Image className="logos" src={'google.png'} alt="google" />
+        <Image className="logos" src={'google.png'} alt="google-logo" />
       </button>
     </div>
   );

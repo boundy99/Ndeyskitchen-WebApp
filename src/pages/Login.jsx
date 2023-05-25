@@ -7,7 +7,9 @@ export default function Login() {
       <Image className="logo-img" src={'logo.png'} />
       <div className="login-form-container">
         <form className="login-form">
-          <h1 className="login-form-header">Login</h1>
+          <p className="login-form-header">
+            <strong>Login</strong>
+          </p>
 
           <label className="form-label" htmlFor="email">
             Email

@@ -23,9 +23,14 @@ export default function PasswordInput(props) {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
+        transform: 'translate(12px, 0)',
       }}
     >
-      <input className="input-box" type={inputType} id={props.id} />
+      <input
+        className="input-box"
+        type={inputType}
+        placeholder={props.placeholder}
+      />
       <img
         className="hide-unhide"
         alt="image"
