@@ -1,4 +1,4 @@
-const { configureStore, applyMiddleware } = require('@reduxjs/toolkit');
+const { configureStore } = require('@reduxjs/toolkit');
 const thunkMiddleware = require('redux-thunk').default;
 const axios = require('axios');
 require('dotenv').config();
@@ -63,7 +63,13 @@ function fetchUsers() {
     axios
       .get(`http://localhost:${process.env.PORT}/api/users`)
       .then(response => {
-        const users = response.data;
+        const users = response.data.map(user => {
+          return {
+            id: user._id,
+            email: user.email,
+            password: user.password,
+          };
+        });
         dispatch(fetchUsersSuccess(users));
       })
       .catch(error => {
