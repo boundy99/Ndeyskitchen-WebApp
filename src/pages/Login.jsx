@@ -20,6 +20,11 @@ export default function Login() {
             Password
           </label>
           <PasswordInput id="password" />
+
+          <p className="forgot-password">
+            <a>Forgot password</a>
+          </p>
+
           <button type="submit" className="form-btn">
             Login
           </button>
@@ -28,6 +33,10 @@ export default function Login() {
           </p>
         </form>
       </div>
+      <button type="submit" className="signup-with-btn">
+        Continue with
+        <Image className="logos" src={'google.png'} alt="google-logo" />
+      </button>
     </div>
   );
 }

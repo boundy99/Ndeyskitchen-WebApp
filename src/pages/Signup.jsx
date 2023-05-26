@@ -8,8 +8,8 @@ export default function Signup() {
           <strong>Signup</strong>
         </p>
 
-        <input className="input-box" id="first-name" placeholder="First Name" />
-        <input className="input-box" type="email" placeholder="Last Name" />
+        <input className="input-box" type="text" placeholder="First Name" />
+        <input className="input-box" type="text" placeholder="Last Name" />
         <input className="input-box" type="email" placeholder="Email" />
         <PasswordInput placeholder="Password" />
         <PasswordInput placeholder="Confirm Password" />
@@ -23,7 +23,7 @@ export default function Signup() {
       </form>
 
       <button type="submit" className="signup-with-btn">
-        Signup with
+        Continue with
         <Image className="logos" src={'google.png'} alt="google-logo" />
       </button>
     </div>
