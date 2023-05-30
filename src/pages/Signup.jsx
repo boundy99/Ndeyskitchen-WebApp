@@ -22,36 +22,39 @@ export default function Signup() {
       lastName,
       email,
       password,
-      confirmPassword,
       number,
     };
 
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    if (password === confirmPassword) {
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    const json = await response.json();
+      const json = await response.json();
 
-    if (!response.ok) {
-      console.log(json.error);
-      setError(json.error);
+      if (!response.ok) {
+        console.log(json.error);
+        setError(json.error);
+      }
+
+      if (response.ok) {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPassword('');
+        setPasswordConfirmation('');
+        setNumber('');
+        setError(null);
+        console.log('New user added successfully', json);
+        navigate('/login');
+      }
     }
 
-    if (response.ok) {
-      setFirstName('');
-      setLastName('');
-      setEmail('');
-      setPassword('');
-      setPasswordConfirmation('');
-      setNumber('');
-      setError(null);
-      console.log('New user added successfully', json);
-      navigate('/login');
-    }
+    console.log('error');
   };
 
   return (
@@ -67,6 +70,7 @@ export default function Signup() {
           placeholder="First name"
           onChange={event => setFirstName(event.target.value)}
           value={firstName}
+          maxLength="30"
         />
         <input
           className="input-box"
@@ -74,6 +78,7 @@ export default function Signup() {
           placeholder="Last name"
           onChange={event => setLastName(event.target.value)}
           value={lastName}
+          maxLength="30"
         />
         <input
           className="input-box"
@@ -81,6 +86,7 @@ export default function Signup() {
           placeholder="Email"
           onChange={event => setEmail(event.target.value)}
           value={email}
+          maxLength="100"
         />
         <PasswordInput
           placeholder="Password"
@@ -93,9 +99,9 @@ export default function Signup() {
           value={confirmPassword}
         />
         <input
-          class="input-box"
+          className="input-box"
           type="tel"
-          maxlength="10"
+          maxLength="10"
           placeholder="Phone number"
           onChange={event => setNumber(event.target.value)}
           value={number}

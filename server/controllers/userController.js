@@ -1,23 +1,24 @@
 const User = require('../database/models/userModel');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+require('dotenv').config();
 
 const createUser = async (req, res) => {
-  const { firstName, lastName, email, password, confirmPassword, number } =
-    req.body;
-
-  try {
-    const user = await User.create({
-      firstName,
-      lastName,
-      email,
-      password,
-      confirmPassword,
-      number,
-    });
-    res.status(200).json(user);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+  const { firstName, lastName, email, password, number } = req.body;
+  bcrypt.hash(password, 11, async (error, hash) => {
+    try {
+      const user = await User.create({
+        firstName,
+        lastName,
+        email,
+        password: hash,
+        number,
+      });
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  });
 };
 
 const getAllUsers = async (req, res) => {
