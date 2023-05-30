@@ -1,18 +1,105 @@
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import PasswordInput from '../components/PasswordInput';
 import Image from '../components/Image';
+
 export default function Signup() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setPasswordConfirmation] = useState('');
+  const [number, setNumber] = useState('');
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+
+    const user = {
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+      number,
+    };
+
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      console.log(json.error);
+      setError(json.error);
+    }
+
+    if (response.ok) {
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPassword('');
+      setPasswordConfirmation('');
+      setNumber('');
+      setError(null);
+      console.log('New user added successfully', json);
+      navigate('/login');
+    }
+  };
+
   return (
     <div className="singup-container">
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={handleSubmit}>
         <p className="signup-form-header">
           <strong>Signup</strong>
         </p>
 
-        <input className="input-box" type="text" placeholder="First Name" />
-        <input className="input-box" type="text" placeholder="Last Name" />
-        <input className="input-box" type="email" placeholder="Email" />
-        <PasswordInput placeholder="Password" />
-        <PasswordInput placeholder="Confirm Password" />
+        <input
+          className="input-box"
+          type="text"
+          placeholder="First name"
+          onChange={event => setFirstName(event.target.value)}
+          value={firstName}
+        />
+        <input
+          className="input-box"
+          type="text"
+          placeholder="Last name"
+          onChange={event => setLastName(event.target.value)}
+          value={lastName}
+        />
+        <input
+          className="input-box"
+          type="email"
+          placeholder="Email"
+          onChange={event => setEmail(event.target.value)}
+          value={email}
+        />
+        <PasswordInput
+          placeholder="Password"
+          setValue={setPassword}
+          value={password}
+        />
+        <PasswordInput
+          placeholder="Confirm password"
+          setValue={setPasswordConfirmation}
+          value={confirmPassword}
+        />
+        <input
+          class="input-box"
+          type="tel"
+          maxlength="10"
+          placeholder="Phone number"
+          onChange={event => setNumber(event.target.value)}
+          value={number}
+        />
 
         <button type="submit" className="form-btn">
           Signup

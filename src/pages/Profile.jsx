@@ -19,7 +19,7 @@ export default function Profile() {
   return (
     <div className="profile">
       <div className="users">
-        {users && users.map(user => <p key={user._id}>{user.firstName}</p>)}
+        {users && users.map(user => <p key={user._id}>{user.password}</p>)}
       </div>
     </div>
   );

@@ -16,6 +16,11 @@ export default function PasswordInput(props) {
       setExtension('show.png');
     }
   }
+
+  function handleInputChange(event) {
+    props.setValue(event.target.value);
+  }
+
   return (
     <div
       style={{
@@ -24,13 +29,15 @@ export default function PasswordInput(props) {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        // transform: 'translate(12px, 0)',
       }}
     >
       <input
         className="input-box"
         type={inputType}
         placeholder={props.placeholder}
+        name={props.name}
+        onChange={handleInputChange}
+        value={props.value}
       />
       <img
         className="hide-unhide"

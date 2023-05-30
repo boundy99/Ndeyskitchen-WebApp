@@ -1,7 +1,9 @@
 const User = require('../database/models/userModel');
+const mongoose = require('mongoose');
 
 const createUser = async (req, res) => {
-  const { firstName, lastName, email, password, phoneNumber } = req.body;
+  const { firstName, lastName, email, password, confirmPassword, number } =
+    req.body;
 
   try {
     const user = await User.create({
@@ -9,7 +11,8 @@ const createUser = async (req, res) => {
       lastName,
       email,
       password,
-      phoneNumber,
+      confirmPassword,
+      number,
     });
     res.status(200).json(user);
   } catch (error) {
@@ -27,6 +30,10 @@ const getAllUsers = async (req, res) => {
 const getUser = async (req, res) => {
   const id = req.params.id;
 
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
   const user = await User.findById(id);
 
   if (!user) return res.status(404).json({ error: 'User not found' });
@@ -36,6 +43,10 @@ const getUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   const id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: 'User not found' });
+  }
 
   try {
     const user = await User.deleteOne({ _id: id });

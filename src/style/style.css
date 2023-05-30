@@ -129,7 +129,7 @@ body {
     border: 1px solid #000000;
     border-radius: 5px;
     width: 320px;
-    height: 550px;
+    height: 610px;
     padding: 0 1.25rem;
     display: flex;
     flex-direction: column;
@@ -209,7 +209,7 @@ body {
     }
     .signup-form {
         width: 270px;
-        height: 450px;
+        height: 470px;
     }
     .input-box {
         font-size: 13px;
@@ -243,7 +243,7 @@ body {
 
 @media (max-width: 520px) {
     .signup-form {
-        height: 450px;
+        height: 500px;
     }
     .signup-form-header {
         font-size: 24px;
@@ -264,17 +264,17 @@ body {
 @media (max-width: 300px) {
     .login-form {
         width: 215px;
-        height: 360px;
+        height: 330px;
         font-size: 13px;
     }
     .signup-form {
         width: 200px;
-        height: 300px;
+        height: 410px;
     }
     .input-box {
         font-size: 9px;
         margin: 5px auto;
-        height: 30px;
+        height: 25px;
     }
     .logo-img {
         width: 80px;
@@ -283,18 +283,18 @@ body {
         font-size: 30px;
     }
     .signup-form-header {
-        font-size: 20px;
+        font-size: 23px;
         margin-bottom: 10px;
     }
     .form-btn {
-        font-size: 13px;
-        width: 5.5rem;
+        font-size: 12px;
+        width: 5rem;
     }
     .form-link {
         font-size: 10px;
     }
     .hide-unhide {
-        height: 1.5rem;
+        height: 1.25rem;
         right: 2px;
     }
 }
