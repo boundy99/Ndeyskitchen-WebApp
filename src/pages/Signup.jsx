@@ -14,7 +14,7 @@ export default function Signup() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async event => {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const user = {
@@ -55,7 +55,7 @@ export default function Signup() {
     }
 
     console.log('error');
-  };
+  }
 
   return (
     <div className="singup-container">

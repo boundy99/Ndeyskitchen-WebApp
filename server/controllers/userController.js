@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-const createUser = async (req, res) => {
+async function createUser(req, res) {
   const { firstName, lastName, email, password, number } = req.body;
   bcrypt.hash(password, 11, async (error, hash) => {
     try {
@@ -19,14 +19,32 @@ const createUser = async (req, res) => {
       res.status(400).json({ error: error.message });
     }
   });
-};
+}
 
-const getAllUsers = async (req, res) => {
+async function getUserCredentials(req, res) {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email: email });
+
+  if (!user) return res.status(404).json({ error: 'User not found' });
+
+  if (user) {
+    const match = await bcrypt.compare(password, user.password);
+    if (match)
+      return res.status(200).json({
+        email: user.email,
+        password: user.password,
+      });
+    else return res.status(404).json({ error: '' });
+  }
+}
+
+async function getAllUsers(req, res) {
   const users = await User.find().sort();
 
   if (!users) return res.status(404).json({ error: 'Users not found' });
   return res.status(200).json(users);
-};
+}
 
 const getUser = async (req, res) => {
   const id = req.params.id;
@@ -42,7 +60,7 @@ const getUser = async (req, res) => {
   res.status(200).json(user);
 };
 
-const deleteUser = async (req, res) => {
+async function deleteUser(req, res) {
   const id = req.params.id;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -55,11 +73,12 @@ const deleteUser = async (req, res) => {
   } catch (err) {
     res.status(200).json({ mssg: 'Deletion Incomplete' });
   }
-};
+}
 
 module.exports = {
   createUser,
   getUser,
   getAllUsers,
   deleteUser,
+  getUserCredentials,
 };

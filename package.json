@@ -1,8 +1,8 @@
 {
-    "proxy": "http://localhost:8080",
     "name": "ndeyskitchen",
     "version": "0.1.0",
     "main": "server/server.js",
+    "proxy": "http://localhost:8080",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
