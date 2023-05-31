@@ -57,6 +57,10 @@ export default function Signup() {
     console.log('error');
   }
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <div className="singup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
@@ -68,25 +72,37 @@ export default function Signup() {
           className="input-box"
           type="text"
           placeholder="First name"
-          onChange={event => setFirstName(event.target.value)}
+          onChange={event =>
+            setFirstName(capitalizeFirstLetter(event.target.value.trim()))
+          }
           value={firstName}
           maxLength="30"
+          minLength="2"
+          style={{ textTransform: 'capitalize' }}
+          required
         />
         <input
           className="input-box"
           type="text"
           placeholder="Last name"
-          onChange={event => setLastName(event.target.value)}
+          onChange={event =>
+            setLastName(capitalizeFirstLetter(event.target.value.trim()))
+          }
           value={lastName}
           maxLength="30"
+          minLength="2"
+          style={{ textTransform: 'capitalize' }}
+          required
         />
         <input
           className="input-box"
           type="email"
           placeholder="Email"
-          onChange={event => setEmail(event.target.value)}
+          onChange={event => setEmail(event.target.value.trim())}
           value={email}
           maxLength="100"
+          minLength="7"
+          required
         />
         <PasswordInput
           placeholder="Password"
@@ -102,9 +118,11 @@ export default function Signup() {
           className="input-box"
           type="tel"
           maxLength="10"
+          minLength="10"
           placeholder="Phone number"
-          onChange={event => setNumber(event.target.value)}
+          onChange={event => setNumber(event.target.value.trim())}
           value={number}
+          required
         />
 
         <button type="submit" className="form-btn">

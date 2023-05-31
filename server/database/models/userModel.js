@@ -7,8 +7,8 @@ const UserSchema = new Schema(
     firstName: { type: String, required: true, minlength: 2, maxlength: 50 },
     lastName: { type: String, required: true, minlength: 2, maxlength: 50 },
     email: { type: String, required: true, unique: true, maxlength: 100 },
-    password: { type: String, required: true },
-    number: { type: Number, required: true, unique: true },
+    password: { type: String, required: true, maxlength: 100 },
+    number: { type: Number, required: true, unique: true, maxlength: 10 },
     order: [],
   },
   { timestamps: true }

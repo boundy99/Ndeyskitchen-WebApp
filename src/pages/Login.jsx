@@ -48,6 +48,8 @@ export default function Login() {
             onChange={event => setEmail(event.target.value)}
             value={email}
             maxLength="100"
+            minLength="7"
+            required
           />
           <label className="form-label" htmlFor="password">
             Password

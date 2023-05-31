@@ -18,7 +18,7 @@ export default function PasswordInput(props) {
   }
 
   function handleInputChange(event) {
-    props.setValue(event.target.value);
+    props.setValue(event.target.value.trim());
   }
 
   return (
@@ -38,7 +38,9 @@ export default function PasswordInput(props) {
         name={props.name}
         onChange={handleInputChange}
         value={props.value}
-        maxLength="30"
+        maxLength="12"
+        minLength="8"
+        required
       />
       <img
         className="hide-unhide"
