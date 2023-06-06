@@ -5,6 +5,7 @@ const {
   getAllUsers,
   deleteUser,
   getUserCredentials,
+  validateUser,
 } = require('../controllers/userController');
 
 const router = express.Router();
@@ -15,7 +16,7 @@ router.post('/user', getUserCredentials);
 
 router.get('/:id', getUser);
 
-router.get('/', getAllUsers);
+router.get('/', validateUser, getAllUsers);
 
 router.delete('/:id', deleteUser);
 

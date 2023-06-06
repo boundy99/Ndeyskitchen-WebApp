@@ -5,15 +5,25 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch('/api/users');
+      const response = await fetch('/api/users/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: localStorage.getItem('token'),
+        },
+      });
       const userData = await response.json();
 
       if (response.ok) {
         setUsers(userData);
+        console.log(userData);
       }
+
+      if (!response.ok) console.log('You suck');
     };
     fetchUsers();
   }, []);
+  console.log(localStorage.getItem('token'));
   console.log(users);
 
   return (

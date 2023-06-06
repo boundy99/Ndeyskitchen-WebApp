@@ -1,6 +1,7 @@
 const User = require('../database/models/userModel');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 async function createUser(req, res) {
@@ -28,22 +29,43 @@ async function getUserCredentials(req, res) {
 
   if (!user) return res.status(404).json({ error: 'User not found' });
 
-  if (user) {
-    const match = await bcrypt.compare(password, user.password);
-    if (match)
-      return res.status(200).json({
-        email: user.email,
-        password: user.password,
-      });
-    else return res.status(404).json({ error: '' });
+  const id = user._id;
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) return res.status(404).json({ error: 'Password Incorrect' });
+
+  try {
+    const token = jwt.sign({ id: id }, process.env.JWT);
+    return res.status(200).json({ token: token });
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
+}
+
+async function validateUser(req, res, next) {
+  try {
+    const userID = jwt.verify(req.headers.authorization, process.env.JWT);
+
+    console.log(userID);
+    const user = await User.findOne({ _id: userID.id });
+
+    if (!user) return res.status(401).json({ error: 'Unauthorized request' });
+    req.user = user;
+    next();
+  } catch (err) {
+    return res.status(401);
   }
 }
 
 async function getAllUsers(req, res) {
   const users = await User.find().sort();
+  console.log(req.user);
+  if (req.user) {
+    if (!users) return res.status(404).json({ error: 'Users not found' });
+    return res.status(200).json(users);
+  }
 
-  if (!users) return res.status(404).json({ error: 'Users not found' });
-  return res.status(200).json(users);
+  return res.status(401).json({ error: 'Unauthorized request' });
 }
 
 const getUser = async (req, res) => {
@@ -81,4 +103,5 @@ module.exports = {
   getAllUsers,
   deleteUser,
   getUserCredentials,
+  validateUser,
 };
