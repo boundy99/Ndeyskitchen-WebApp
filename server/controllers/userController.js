@@ -35,8 +35,11 @@ async function getUserCredentials(req, res) {
   if (!match) return res.status(404).json({ error: 'Password Incorrect' });
 
   try {
-    const token = jwt.sign({ id: id }, process.env.JWT);
-    return res.status(200).json({ token: token });
+    const token = jwt.sign({ id: id }, process.env.JWT, { expiresIn: '24h' });
+    return res
+      .status(200)
+      .cookie('token', token, { httpOnly: true })
+      .json({ token: token });
   } catch (err) {
     return res.status(500).json({ error: err });
   }

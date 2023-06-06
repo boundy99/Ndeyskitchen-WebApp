@@ -23,39 +23,7 @@ body {
 }
 
 
-/* Login */
-
-.login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    min-width: 280px;
-    min-height: 400px;
-}
-
-.login-form-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-form {
-    font-size: 16px;
-    color: #371821;
-    border: 1px solid #000000;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    width: 350px;
-    height: 453px;
-    padding: 0 1.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 387px;
-}
+/* Forms */
 
 .input-box {
     font-size: 15px;
@@ -83,17 +51,6 @@ body {
     background-color: #371821;
 }
 
-.login-form .form-btn:hover {
-    background-color: #000000;
-}
-
-.login-form-header {
-    font-family: 'Satisfy', cursive;
-    font-size: 50px;
-    margin-bottom: 1.25rem;
-    margin-top: 20px
-}
-
 .form-link {
     font-size: 13px;
     color: black
@@ -103,54 +60,7 @@ body {
     color: black;
 }
 
-.forgot-password {
-    font-size: 13px;
-    color: #DC952F;
-    margin-top: 2px;
-    margin-bottom: 5px;
-}
-
-
-/* Signup */
-
-.singup-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    min-width: 270px;
-    min-height: 490px;
-}
-
-.signup-form {
-    font-size: 14px;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    width: 320px;
-    height: 610px;
-    padding: 0 1.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 387px;
-}
-
-.signup-form-header {
-    font-size: 35px;
-    margin-bottom: 10px;
-}
-
-.signup-form .form-btn {
-    background-color: #000000;
-}
-
-.signup-form .form-btn:hover {
-    background-color: #DC952F;
-}
-
-.signup-with-btn {
+.continue-with-btn {
     background-color: #000000;
     color: #FFFFFF;
     font-size: 17px;
@@ -162,7 +72,7 @@ body {
     justify-content: center;
 }
 
-.signup-with-btn:hover {
+.continue-with-btn:hover {
     background-color: #FFFFFF;
     border: none;
     border-radius: 30px;
@@ -170,131 +80,3 @@ body {
     ;
 }
 
-
-/* Media queries */
-
-@media (max-width: 660px) {
-    .login-form {
-        width: 280px;
-        height: 400px;
-    }
-    .signup-form {
-        width: 280px;
-        height: 600px;
-    }
-    .input-box {
-        margin: 9px auto;
-        height: 30px;
-    }
-    .logo-img {
-        width: 90px;
-    }
-    .login-form-header {
-        font-size: 37px;
-    }
-    .signup-form-header {
-        font-size: 40px;
-    }
-    .form-btn {
-        font-size: 14px;
-        width: 7.25rem;
-    }
-}
-
-@media (max-height: 775px) {
-    .login-form {
-        width: 260px;
-        height: 370px;
-        font-size: 13.5px;
-    }
-    .signup-form {
-        width: 270px;
-        height: 470px;
-    }
-    .input-box {
-        font-size: 13px;
-        margin: 7px auto;
-        height: 30px;
-    }
-    .logo-img {
-        width: 90px;
-    }
-    .signup-form-header {
-        font-size: 24px;
-    }
-    .form-btn {
-        font-size: 14px;
-        width: 6.1rem;
-    }
-    .login-form .form-btn {
-        margin-top: 15px;
-    }
-    .hide-unhide {
-        height: 1.2rem;
-    }
-    .forgot-password {
-        font-size: 11.5px;
-        color: #DC952F;
-    }
-    .form-link {
-        font-size: 12.2px;
-    }
-}
-
-@media (max-width: 520px) {
-    .signup-form {
-        height: 500px;
-    }
-    .signup-form-header {
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-    .hide-unhide {
-        height: 1.27rem;
-    }
-    .forgot-password {
-        font-size: 12.5px;
-        color: #DC952F;
-    }
-    .input-box {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 300px) {
-    .login-form {
-        width: 215px;
-        height: 330px;
-        font-size: 13px;
-    }
-    .signup-form {
-        width: 200px;
-        height: 410px;
-    }
-    .input-box {
-        font-size: 9px;
-        margin: 5px auto;
-        height: 25px;
-    }
-    .logo-img {
-        width: 80px;
-    }
-    .login-form-header {
-        font-size: 30px;
-    }
-    .signup-form-header {
-        font-size: 23px;
-        margin-bottom: 10px;
-    }
-    .form-btn {
-        font-size: 12px;
-        width: 5rem;
-    }
-    .form-link {
-        font-size: 10px;
-    }
-    .hide-unhide {
-        height: 1.25rem;
-        right: 2px;
-    }
-}

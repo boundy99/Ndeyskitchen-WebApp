@@ -133,7 +133,7 @@ export default function Signup() {
         </p>
       </form>
 
-      <button type="submit" className="signup-with-btn">
+      <button type="submit" className="continue-with-btn">
         Continue with
         <Image className="logos" src={'google.png'} alt="google-logo" />
       </button>
