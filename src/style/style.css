@@ -80,3 +80,87 @@ body {
     ;
 }
 
+/* Media Queries */
+
+@media (max-width: 660px) {
+    
+    .input-box {
+        font-size: 13px;
+        margin: 9px auto;
+        height: 30px;
+    }
+
+    .logo-img {
+        width: 90px;
+    }
+
+    .form-btn {
+        font-size: 14px;
+        width: 7.25rem;
+    }
+
+    .hide-unhide {
+        height: 1.60rem;
+    }
+}
+
+@media (max-height: 775px) {
+    
+    .input-box {
+        font-size: 13px;
+        margin: 7px auto;
+        height: 30px;
+    }
+    .logo-img {
+        width: 90px;
+    }
+
+    .form-btn {
+        font-size: 14px;
+        width: 6.1rem;
+    }
+    
+    .hide-unhide {
+        height: 1.2rem;
+    }
+    
+    .form-link {
+        font-size: 12.2px;
+    }
+}
+
+@media (max-width: 520px) {
+   
+    .hide-unhide {
+        height: 1.40rem;
+    }
+    
+    .input-box {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 300px) {
+    
+    .input-box {
+        font-size: 9px;
+        margin: 5px auto;
+        height: 25px;
+    }
+    .logo-img {
+        width: 80px;
+    }
+    
+    .form-btn {
+        font-size: 12px;
+        width: 5rem;
+    }
+    .form-link {
+        font-size: 10px;
+    }
+    .hide-unhide {
+        height: 1.25rem;
+        right: 2px;
+    }
+}
+
