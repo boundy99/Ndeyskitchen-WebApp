@@ -6,7 +6,7 @@ export default function PasswordInput(props) {
     require('../images/' + extension)
   );
   const [inputType, setInputeType] = useState('password');
-  function handleClick() {
+  function togglePasswordVisibility() {
     if (extension === 'show.png') {
       setExtension('hide.png');
       setpasswordImage(require('../images/hide.png'));
@@ -20,6 +20,12 @@ export default function PasswordInput(props) {
 
   function handleInputChange(event) {
     props.setValue(event.target.value.trim());
+  }
+
+  function handleClick() {
+    if (props.setErrorValue) {
+      props.setErrorValue(false);
+    }
   }
 
   return (
@@ -38,6 +44,8 @@ export default function PasswordInput(props) {
         placeholder={props.placeholder}
         name={props.name}
         onChange={handleInputChange}
+        onClick={handleClick}
+        style={{ border: props.error ? '0.15rem solid #DC952F' : '' }}
         value={props.value}
         maxLength="12"
         minLength="8"
@@ -47,7 +55,7 @@ export default function PasswordInput(props) {
         className="hide-unhide"
         alt="image"
         src={passwordImage}
-        onClick={handleClick}
+        onClick={togglePasswordVisibility}
       />
     </div>
   );
