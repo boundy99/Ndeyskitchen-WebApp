@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 export default function Profile() {
   const [users, setUsers] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -12,19 +13,33 @@ export default function Profile() {
           authorization: localStorage.getItem('token'),
         },
       });
+      const tokenExists = checkTokenExists();
       const userData = await response.json();
 
       if (response.ok) {
         setUsers(userData);
-        console.log(userData);
       }
 
-      if (!response.ok) console.log('You suck');
+      if (!tokenExists) {
+        localStorage.removeItem('token');
+        navigate('/login');
+      }
     };
     fetchUsers();
   }, []);
-  console.log(localStorage.getItem('token'));
-  console.log(users);
+
+  function checkTokenExists() {
+    const cookies = document.cookie.split(';');
+
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+
+      if (cookie.startsWith('token=')) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   return (
     <div className="profile">

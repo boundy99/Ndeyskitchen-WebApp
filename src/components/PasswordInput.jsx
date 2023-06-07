@@ -5,7 +5,9 @@ export default function PasswordInput(props) {
   const [passwordImage, setpasswordImage] = useState(
     require('../images/' + extension)
   );
+
   const [inputType, setInputeType] = useState('password');
+
   function togglePasswordVisibility() {
     if (extension === 'show.png') {
       setExtension('hide.png');

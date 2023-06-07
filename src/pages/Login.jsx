@@ -31,7 +31,7 @@ export default function Login() {
       setPasswordError(true);
     }
 
-    if (json.error === 'Password Incorrect') {
+    if (json.error === 'Password incorrect') {
       setPasswordError(true);
     }
 
