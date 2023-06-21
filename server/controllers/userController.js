@@ -45,7 +45,7 @@ async function getUserCredentials(req, res) {
     const token = jwt.sign({ id: id }, process.env.JWT);
     return res
       .status(200)
-      .cookie('token', token, { httpOnly: true, secure: true, maxAge: 8.64e7 })
+      .cookie('token', token, { httpOnly: true, secure: true })
       .json({ token: token });
   } catch (err) {
     return res.status(500).json({ error: err });

@@ -26,7 +26,7 @@
         "start": "react-scripts start",
         "dev": "nodemon server/server.js",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "jest --detectOpenHandles --watch",
         "eject": "react-scripts eject"
     },
     "keywords": [],
@@ -43,5 +43,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "jest": "^29.5.0",
+        "supertest": "^6.3.3"
     }
 }
